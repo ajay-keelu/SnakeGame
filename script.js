@@ -162,7 +162,7 @@ restart.addEventListener("click", () => {
 let gameStart = () => {
   GameOver();
   food();
-  gameOn = setInterval(snakeChange, 120);
+  gameOn = setInterval(snakeChange, 130);
 };
 
 //} game Over
