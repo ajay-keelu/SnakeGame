@@ -1,8 +1,8 @@
 let snakeMove = document.querySelectorAll(".snake-move");
-alert("use arrows for snake moves");
-alert("click start  to start the game");
 let i = 0;
 let row = [];
+alert("use arrows for snake moves");
+alert("click start  to start the game");
 let curScoreEle = document.querySelector("#curScore");
 let highestScore = document.querySelector("#highestScore");
 var highScore = 0;
@@ -26,10 +26,15 @@ let food = () => {
   while (flag) {
     foodi = Math.floor(Math.random() * 20);
     foodj = Math.floor(Math.random() * 20);
-    snakeBody.forEach((ele) => {
-      if (ele[0] == foodi && ele[1] == foodj) flag = true;
-      else flag = false;
-    });
+    for (let i = 0; i < snakeBody.length; i++) {
+      let ele = snakeBody[i];
+      if (ele[0] == foodi && ele[1] == foodj) {
+        flag = true;
+        break;
+      } else {
+        flag = false;
+      }
+    }
   }
   snakeMove.forEach((ele) => {
     if (
@@ -171,10 +176,6 @@ const GameOver = () => {
   curScore = 0;
   curScoreEle.innerHTML = curScore;
 };
-//}
-//{
-// snake food
-
 //}
 /**
  * dir 0 -> left
