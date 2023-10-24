@@ -160,6 +160,8 @@ restart.addEventListener("click", () => {
   smiX = 0;
   smiY = 0;
   dir = 2;
+  curScore = 0;
+  curScoreEle.innerHTML = 0;
   gameStart();
 });
 //}
@@ -167,13 +169,12 @@ restart.addEventListener("click", () => {
 let gameStart = () => {
   GameOver();
   food();
-  gameOn = setInterval(snakeChange, 130);
+  gameOn = setInterval(snakeChange, 150);
 };
 
 //} game Over
 const GameOver = () => {
   clearInterval(gameOn);
-  curScore = 0;
   curScoreEle.innerHTML = curScore;
 };
 //}
@@ -183,6 +184,18 @@ const GameOver = () => {
  * dir 2 -> right
  * dir 3 -> top
  */
+document.querySelector("#top").addEventListener("click", () => {
+  if (dir === 0 || dir === 2) dir = 3;
+});
+document.querySelector("#left").addEventListener("click", () => {
+  if (dir === 1 || dir === 3) dir = 0;
+});
+document.querySelector("#right").addEventListener("click", () => {
+  if (dir === 1 || dir === 3) dir = 2;
+});
+document.querySelector("#bottom").addEventListener("click", () => {
+  if (dir === 0 || dir === 2) dir = 1;
+});
 document.addEventListener("keyup", (e) => {
   if (e.key === "ArrowDown") {
     if (dir === 0 || dir === 2) dir = 1;
