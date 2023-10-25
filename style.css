@@ -151,10 +151,10 @@ body {
 }
 
 .buttons-mob button {
-    height: 25px;
+    height: 45px;
     background: rgb(25, 24, 49);
     color: #fff;
-    width: 30px;
+    width: 45px;
     border-radius: 5px;
     display: flex;
     align-items: center;
